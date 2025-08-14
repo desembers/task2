@@ -15,14 +15,26 @@ User 클래스
 
 HTTP 메서드 
 Day 컨트롤러 
+
 POSET ->  + /Days  일정확인
 GET -> + /Days/id 단건조회
 GET -> + /Days 전체조회
 UPDATE -> /Days/id 일정단건 수정
 DELETE -> /Days/id 일정삭제 
 
+댓글 생성 및 조회하기 
+Post -> + 댓글 생성하기(단건) 하나씩 생성할수 있도록 설정함 
+Get -> + /scedule/sceduleId
+Put -> + /commentId 댓글 조회하기
+Delete -> /commentId 댓글 삭제하기 
+
+
+
 사용언어 : SprongBoot
-의존성 주입 (DI) : JPA, 제약조건, 템플릿, 롬복 
+의존성 주입 (DI) : JPA, 제약조건, 템플릿, 롬복
+레이어드 아키텍처
+서비스 로직 기능 업그레이드 : JDK 21이상 구현 (누락 방지)
+레포지토리 : JPA연동 
 
 다이어그램 앤티티 관계도 표시
 연관관계 표시 사용자(User) 댓글(Comment) 표시 
