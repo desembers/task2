@@ -13,6 +13,13 @@ User 클래스
 생성날짜
 수정날짜 
 
+HTTP 메서드 
+Day 컨트롤러 
+POSET ->  + /Days  일정확인
+GET -> + /Days/id 단건조회
+GET -> + /Days 전체조회
+UPDATE -> /Days/id 일정단건 수정
+DELETE -> /Days/id 일정삭제 
 
 사용언어 : SprongBoot
 의존성 주입 (DI) : JPA, 제약조건, 템플릿, 롬복 
