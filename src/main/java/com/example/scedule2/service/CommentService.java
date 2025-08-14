@@ -9,6 +9,7 @@ import com.example.scedule2.repository.CommentRepository;
 import com.example.scedule2.repository.DaysRepository;
 import com.example.scedule2.repository.UesrRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -34,7 +35,7 @@ public class CommentService {
                 .day(day)
                 .build();
 
-        Comment saved = commentRepository.save(comment);
+        Comment saved = (Comment) commentRepository.save(comment);
         return toDto(saved);
     }
 
@@ -46,10 +47,11 @@ public class CommentService {
     }
 
     public CommentResponseDto updateComment(Long commentId, String newContent) {
-        Comment comment = commentRepository.findById(commentId)
-                .orElseThrow(() -> new IllegalArgumentException("Comment not found"));
+        Comment comment = null;
+            comment = commentRepository.findById(commentId)
+                    .orElseThrow(() -> new IllegalArgumentException("Comment not found"));
         comment.setContent(newContent);
-        return toDto(commentRepository.save(comment));
+        return toDto((Comment) commentRepository.save(comment));
     }
 
     public void deleteComment(Long commentId) {
